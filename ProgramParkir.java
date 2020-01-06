@@ -14,26 +14,29 @@ public class ProgramParkir{
 		int TotalBayar = 0;
 		int TotalJam = 0;
 		
-			for (int i = 0; i < 2; i++){
-				Scanner input = new Scanner(System.in);
-				System.out.print ("Plat Nomor : ");
-				PlatNomor = input.nextLine();
-				System.out.println ("1. Mobil");
-				System.out.println ("2. Motor");
-				System.out.print("Jenis Kendaraan [1/2] : ");
-				JenisKendaraan = input.nextInt();
-				System.out.print ("Jam Masuk : ");
-				JamMasuk = input.nextInt();
-				System.out.print ("Jam Keluar : ");
-				JamKeluar = input.nextInt();
-			
+		for (int i = 0; i < 2; i++){
+			Scanner input = new Scanner(System.in);
+			System.out.print ("Plat Nomor : ");
+			PlatNomor = input.nextLine();
+			System.out.println ("1. Mobil");
+			System.out.println ("2. Motor");
+			System.out.print("Jenis Kendaraan [1/2] : ");
+			JenisKendaraan = input.nextInt();
+			System.out.print ("Jam Masuk : ");
+			JamMasuk = input.nextInt();
+			System.out.print ("Jam Keluar : ");
+			JamKeluar = input.nextInt();
+				
 				if (JamMasuk > JamKeluar){
 					TotalJam = (JamKeluar - JamMasuk) + 24;	
 				}
 				else{
 					TotalJam = JamKeluar - JamMasuk;
 				}
-			
+				if(TotalJam == 0 ){
+					TotalJam = 1;
+				}
+				
 			if (JenisKendaraan == 1 ){
 				jenis_Kendaraan = "Mobil";
 				HargaAwal = 5000;
@@ -45,7 +48,7 @@ public class ProgramParkir{
 					HargaAwal = 3000;
 					HargaBerikutnya = 1500 * (TotalJam - 1);
 					TotalBayar = HargaAwal + HargaBerikutnya;
-					
+						
 					System.out.println ("Biaya Parkir : " + TotalBayar);
 			}
 			else{
